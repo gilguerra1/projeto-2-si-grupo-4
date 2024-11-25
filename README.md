@@ -42,9 +42,4 @@ SQLite
 ### 📖 Metodologia PBL
 A metodologia PBL (Problem-Based Learning) incentiva os alunos a resolverem problemas reais, trabalhando em equipe e aplicando conhecimentos teóricos na prática. O PBL Progress foi desenvolvido para otimizar esse processo, proporcionando uma experiência mais eficiente tanto para professores quanto para alunos.
 ### 📬 Contribuições
-Este é um projeto acadêmico, mas contribuições são bem-vindas! Sinta-se à vontade para enviar issues ou pull requests para melhorias.
-
-### 📜 Licença
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais informações.
-
 Desenvolvido como parte de um projeto acadêmico por estudantes da faculdade, com foco em resolver um problema real do cliente e promover o aprendizado através da metodologia PBL
