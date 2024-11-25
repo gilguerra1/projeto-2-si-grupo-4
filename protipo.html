@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Progress - Questionário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .header {
+            background-color: #333;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            width: 70%;
+        }
+
+        .nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .question-title {
+            text-align: center;
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ccc;
+            color: black;
+            text-align: left;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .option-btn.selected {
+            background-color: #555;
+            color: white;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #555;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .feedback-page {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PBL Progress</h1>
+        <div class="nav">
+            <a href="#">Início</a>
+            <a href="#">Quiz</a>
+            <a href="#">Usuário</a>
+            <a href="#">Desempenho</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="question-title">Questionário</div>
+        
+        <!-- Pergunta 1 -->
+        <div class="question-page" id="question1">
+            <div class="question">1.Problema(s) do cliente como proposta educacional central</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">As atividades de aprendizagem (conteúdo, práticas, exercícios) são ministradas independentemente do problema.</button>
+                <button class="option-btn" data-value="0.5">Nem todas as atividades  estão associadas com a resolução de tarefas ou problemas específicos. Por exemplo,  conteúdo é explanado sem relação com a prática.</button>
+                <button class="option-btn" data-value="1">Todas as atividades são iniciadas, motivadas e direcionadas para a resolução de uma tarefa ou problema específico, sendo este o propósito maior da aprendizagem.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(2)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="question-page hidden" id="question2">
+            <div class="question">2.O Aluno sente-se responsável pela resolução do problema</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">Postura totalmente passiva com relação ao problema.</button>
+                <button class="option-btn" data-value="0.5">O aluno se envolve com o problema para cumprir metas, geralmente na entrega de resultados parciais exigidos pelo professor ou tutor.</button>
+                <button class="option-btn" data-value="1">O aluno está totalmente envolvido com o problema, demonstrando engajamento na busca pela sua solução, independente de tarefas exigidas pelo professor ou tutor.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(3)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="question-page hidden" id="question3">
+            <div class="question">3. Autenticidade do problema ou tarefa</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">As tarefas de aprendizagem não refletem as situações do mundo real.</button>
+                <button class="option-btn" data-value="0.5">Problema ou tarefa real, mas sem a participação do cliente ou ainda definição do contexto, sendo realizada pelo professor.</button>
+                <button class="option-btn" data-value="1">As tarefas de aprendizagem são reais, definidas e acompanhadas a partir de clientes reais, em contexto real, controlado por escopo da solução, prazos de entrega e esforço despendido.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(4)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="question-page hidden" id="question4">
+            <div class="question">4. Autenticidade do ambiente de aprendizagem</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">O ambiente de aprendizado é convencional, tanto o físico (mobília e recursos) quanto os procedimentos.</button>
+                <button class="option-btn" data-value="0.5">O ambiente de aprendizado é uma simulação do mundo real.</button>
+                <button class="option-btn" data-value="1">O ambiente de aprendizado é real, com os mesmos desafios que você encontrará no ambiente para o qual está sendo treinado: equipe, infraestrutura e processos reais.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(5)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="question-page hidden" id="question5">
+            <div class="question">5. Condução do processo de resolução do problema</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">O processo de resolução do problema é totalmente conduzido pelo professor ou tutor, sem entendimento por parte do aluno.</button>
+                <button class="option-btn" data-value="0.5">O professor ou tutor define o processo de resolução do problema, mas o aluno o entende, sabe aplicá-lo e é capaz de identificar pontos fortes e de melhoria.</button>
+                <button class="option-btn" data-value="1">O aluno define o processo de resolução de problema, descrevendo suas etapas, pontos fortes e de melhoria.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(6)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 6 -->
+        <div class="question-page hidden" id="question6">
+            <div class="question">6. Complexidade do problema ou tarefa.</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">Os problemas ou tarefas são simples de resolver, exigindo pouco do assunto abordado na disciplina.</button>
+                <button class="option-btn" data-value="0.5">A complexidade dos problemas ou tarefas é moderada, por não exigir muito esforço do aluno  na busca de informações ou soluções alternativas para sua resolução.</button>
+                <button class="option-btn" data-value="1">A complexidade do problema ou tarefa estimula o raciocínio e o desafio no desenvolvimento das ideias acerca do problema proposto. São necessárias mais informações que as fornecidas para entender o problema e conhecer as ações necessárias para a sua solução.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(7)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 7 -->
+        <div class="question-page hidden" id="question7">
+            <div class="question">7. Avaliação e análise da solução para o problema</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">A solução para o problema é proposta por um dos membros da equipe, a partir de seu conhecimento e/ou experiência individual.</button>
+                <button class="option-btn" data-value="0.5">Soluções são propostas por um ou mais alunos e, a partir da discussão entre os membros do grupo, decide-se pela melhor solução.</button>
+                <button class="option-btn" data-value="1">As soluções são construídas a partir de um processo investigativo e questionador de ideias entre todos os membros da equipe, buscando novas fontes e contextos alternativos para desenvolver a melhor solução para o problema.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(8)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 8 -->
+        <div class="question-page hidden" id="question8">
+            <div class="question">8. Reflexão sobre como o aluno aprendeu o conteúdo no processo de aprendizagem</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">O aluno não tem oportunidade para refletir sobre sua aprendizagem.</button>
+                <button class="option-btn" data-value="0.5">O aluno tem oportunidade para refletir sobre sua aprendizagem, mas não é orientado para o desenvolvimento de habilidades de autoconscientização sobre o processo de construção do conhecimento. Por exemplo, o aluno não é capaz de compreender e/ou explicar como e por que o problema foi resolvido.</button>
+                <button class="option-btn" data-value="1">O aluno é encorajado a pensar e agir reflexivamente, demonstrando habilidades de autoconscientização sobre conteúdo aprendido e processo de aprendizagem. Por exemplo, o aluno é capaz de compreender e explicar como e por que um problema foi resolvido.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(9)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 9 -->
+        <div class="question-page hidden" id="question9">
+            <div class="question">9. Forma de aprendizagem</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">A aprendizagem acontece através apenas da interação entre (professor - aluno), com informações repassadas por um professor ou tutor.</button>
+                <button class="option-btn" data-value="0.5">A aprendizagem ocorre em grupos, mas há pouca colaboração e interatividade (participação) com os colegas do grupo, também como para os professores e tutores.</button>
+                <button class="option-btn" data-value="1">A aprendizagem é colaborativa e acontece através de várias direções entre (professor-aluno, aluno-professor, aluno-aluno), envolvendo discussões, diálogos em grupo e maior interação com os colegas, professores e tutores.</button>
+            </div>
+            <button class="submit-btn" onclick="nextQuestion(10)">Enviar</button>
+        </div>
+
+        <!-- Pergunta 10 -->
+        <div class="question-page hidden" id="question10">
+            <div class="question">10. Avaliação e acompanhamento contínuo</div>
+            <div class="options">
+                <button class="option-btn" data-value="0">As avaliações não estão alinhadas com os objetivos educacionais propostos.</button>
+                <button class="option-btn" data-value="0.5">Os objetivos educacionais não foram claramente definidos e as avaliações são aplicadas com um único propósito.</button>
+                <button class="option-btn" data-value="1">As avaliações são contínuas e estão diretamente alinhadas com os objetivos educacionais propostos.</button>
+            </div>
+            <button class="submit-btn" onclick="finalFeedback()">Enviar</button>
+        </div>
+
+        <!-- Feedback final -->
+        <div class="feedback-page hidden" id="feedbackPage">
+            <h2>Obrigado por completar o questionário!</h2>
+            <p>Por favor, deixe um feedback sobre o processo de aprendizagem no PBL:</p>
+            <textarea id="feedbackText" placeholder="Escreva seu feedback aqui..."></textarea>
+            <button class="submit-btn" onclick="showScore()">Enviar Feedback</button>
+        </div>
+        
+        <!-- Resultado -->
+        <div class="hidden feedback-page" id="result-page">
+            <h2>Soma Total: <span id="totalScore"></span></h2>
+        </div>
+        
+    </div>
+    
+        
+    <script>
+        let currentQuestion = 1;
+        let selectedValues = {};
+
+        // Função para avançar para a próxima pergunta
+        function nextQuestion(nextPage) {
+            document.getElementById('question' + currentQuestion).classList.add('hidden');
+            currentQuestion = nextPage;
+            document.getElementById('question' + currentQuestion).classList.remove('hidden');
+        }
+
+        // Função para mostrar a página de feedback
+        function finalFeedback() {
+            document.getElementById('question10').classList.add('hidden');
+
+            // Calcular e exibir a soma total
+            const total = Object.values(selectedValues).reduce((acc, curr) => acc + curr, 0);
+            document.getElementById('totalScore').innerText = total.toFixed(2); // Arredondando o valor para 2 casas decimais
+
+            // Mostrar a página de feedback
+            document.getElementById('feedbackPage').classList.remove('hidden');
+        }
+
+        // Função para mostrar a soma total após o feedback
+        function showScore() {
+            document.getElementById('feedbackPage').classList.add('hidden');
+            document.getElementById('result-page').classList.remove('hidden');
+        }
+
+        // Adicionando eventos para capturar seleções e somar valores
+        document.querySelectorAll('.option-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                // Remover a classe 'selected' dos outros botões na mesma pergunta
+                button.parentElement.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+
+                // Adicionar a classe 'selected' ao botão clicado
+                button.classList.add('selected');
+
+                // Capturar o valor selecionado
+                const questionNumber = button.closest('.question-page').id.replace('question', '');
+                const value = parseFloat(button.getAttribute('data-value'));
+
+                // Salvar o valor selecionado para a pergunta atual
+                selectedValues[questionNumber] = value;
+            });
+        });
+    </script>
+</body>
+</html>

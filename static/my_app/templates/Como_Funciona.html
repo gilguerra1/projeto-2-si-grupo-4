@@ -1,0 +1,78 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona o Questionário - PBL Progress</title>
+    <link rel="stylesheet" href="{% static 'my_app/css/Como_funciona.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>PBL Progress</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Questionário</a></li>
+                    <li><a href="#">Usuário</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="info-box">
+            <h2>O que é o PBL?</h2>
+            <p>
+                O PBL (Problem-Based Learning) é uma metodologia de ensino focada na resolução de problemas reais. 
+                Os alunos são desafiados a identificar, pesquisar e propor soluções para questões práticas, promovendo o desenvolvimento de habilidades como:
+            </p>
+            <ul>
+                <li>Pensamento crítico</li>
+                <li>Trabalho em equipe</li>
+                <li>Autonomia</li>
+            </ul>
+        </section>
+
+        <section class="info-box">
+            <h2>Como Funciona o Questionário?</h2>
+            <p>
+                O questionário foi desenvolvido para avaliar as habilidades principais dos alunos durante o processo de PBL (Problem-Based Learning). Abaixo estão os principais elementos:
+            </p>
+
+            <div class="info-section">
+                <h3>Estrutura do Questionário</h3>
+                <p>
+                    O questionário será composto por 10 perguntas focadas nas habilidades desenvolvidas pelo aluno, como:
+                </p>
+                <ul>
+                    <li>Resolução de problemas</li>
+                    <li>Trabalho em equipe</li>
+                    <li>Pensamento crítico</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h3>Escala de Avaliação</h3>
+                <p>Os alunos responderão às perguntas utilizando uma escala, como:</p>
+                <ul>
+                    <li>Concordo totalmente</li>
+                    <li>Concordo parcialmente</li>
+                    <li>Discordo</li>
+                    <li>Não sei</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h3>Coleta de Dados</h3>
+                <p>
+                    As respostas serão armazenadas no banco de dados e associadas ao perfil de cada aluno, permitindo a geração de métricas personalizadas.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

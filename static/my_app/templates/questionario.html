@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Progress - Questionário</title>
+    <link rel="stylesheet" href="{% static 'my_app/css/Questionario.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>PBL Progress</h1>
+        <div class="nav">
+            <a href="#">Início</a>
+            <a href="#">Questionário</a>
+            <a href="#">Usuário</a>
+        </div>
+    </div>
+    <div class="container">
+        <form method="POST" action="#">
+            {% csrf_token %}
+
+            <!-- Exibir cada pergunta com suas opções -->
+            {% for question in questions %}
+            <div class="question-page {% if forloop.first %} {% else %} hidden {% endif %}" id="question{{ forloop.counter }}">
+                <div class="question">{{ question.text }}</div>
+                <div class="options">
+                    {% for choice in question.choices.all %}
+                        <label>
+                            <input type="radio" name="question_{{ question.id }}" value="{{ choice.id }}">
+                            {{ choice.text }}
+                        </label>
+                    {% endfor %}
+                    </div>
+                    {% if forloop.last %}
+                        <!-- Botão da última pergunta para mostrar feedback -->
+                        <button type="button" class="submit-btn" onclick="showFeedback()">Enviar</button>
+                    {% else %}
+                        <!-- Botão das outras perguntas para avançar -->
+                        <button type="button" class="submit-btn" onclick="nextQuestion({{ forloop.counter|add:1 }})">Enviar</button>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <!-- Feedback final -->
+            <div class="feedback-page hidden" id="feedbackPage">
+                <h2>Obrigado por completar o questionário!</h2>
+                <p>Por favor, deixe um feedback sobre o processo de aprendizagem no PBL:</p>
+                <textarea name="feedback" placeholder="Escreva seu feedback aqui..."></textarea>
+                <button type="submit" class="submit-btn">Enviar Questionário</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="{% static 'my_app/js/questionario.js' %}"></script>
+</body>
+</html>

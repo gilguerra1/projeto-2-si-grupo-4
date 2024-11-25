@@ -1,0 +1,57 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Progress - Cadastro</title>
+    <link rel="stylesheet" href="{% static 'my_app/css/Cadastro.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>PBL Progress</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Questionário</a></li>
+                <li><a href="#">Usuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="register-box">
+            <h2>Cadastro</h2>
+            <form action="#" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="nome" class="sr-only">Nome:</label>
+                    <input type="text" id="name" name="name" placeholder="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email" class="sr-only">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="matricula" class="sr-only">Matrícula:</label>
+                    <input type="text" id="register" name="register" placeholder="Matricula" required>
+                </div>
+                <div class="input-group">
+                    <label for="password" class="sr-only">Senha:</label>
+                    <input type="password" id="password" name="password" placeholder="Senha" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password" class="sr-only">Confirmar Senha:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar Senha" required>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p>Já possui uma conta? <a href="#">Login</a></p>
+        </div>
+    </main>
+</body>
+</html>

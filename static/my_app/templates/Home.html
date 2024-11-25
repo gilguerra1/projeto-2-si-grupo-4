@@ -1,0 +1,36 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Progress</title>
+    <link rel="stylesheet" href="{% static 'my_app/css/Home.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>PBL Progress</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home-usuario' %}">Início</a></li>
+                    <li><a href="{% url 'questionario' %}">Questionário</a></li>
+                    <li><a href="#">Usuário</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="button-box">
+            <h2>PBL Progress</h2>
+            <div class="buttons-container">
+                <button class="btn" href="{% url 'questionario' %}">Questionário</button>
+                <button class="btn"  href="{% url 'como funciona' %}">Como Funciona</button>
+                <button class="btn">Usuário</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
